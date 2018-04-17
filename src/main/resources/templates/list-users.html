@@ -10,8 +10,11 @@
 <ul>
     <li th:each="user : ${users}" >
         <span th:text="${user.firstName} + ' ' + ${user.lastName}"> User</span>
-        <a th:href="'/user/delete/' + ${user.id}"><button>X</button></a>
+        <a th:href="'/user/delete/' + ${user.id}"><button>Delete user</button></a>
     </li>
 </ul>
+
+<a href="/">Homepage</a>
+<a href="/user/create">Create user</a>
 </body>
 </html>

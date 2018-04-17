@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List tasks</title>
+</head>
+<body>
+
+FIlter tasks by User ID:
+<input type="text"/>
+
+<br/><br/>
+
+<ul>
+    <li th:each="task : ${tasks}" >
+        <span th:text="${task.title} + ': ' + ${task.description}"> Task</span>
+        <a th:href="'/task/delete/' + ${task.id}"><button>Delete task</button></a>
+    </li>
+</ul>
+
+<a href="/">Homepage</a>
+<a href="/task/create">Create task</a>
+
+</body>
+</html>

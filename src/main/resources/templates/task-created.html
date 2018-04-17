@@ -3,17 +3,16 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>User created</title>
+    <title>Task created</title>
 </head>
 <body>
 
-<h1>User created</h1>
+<h1>Task created</h1>
 
-<p th:text="${user.id}">First name</p>
+<p th:text="${task.id}">Task</p>
 <a href="/">Homepage</a>
-<a href="/user/create">Create new user</a>
-<a href="/user/list">View all users</a>
-
+<a href="/task/create">Create new task</a>
+<a href="/task/list">View all tasks</a>
 
 </body>
 </html>

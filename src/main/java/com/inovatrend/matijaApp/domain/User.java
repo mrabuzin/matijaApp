@@ -32,13 +32,9 @@ public class User {
     private String lastName;
 
     @Column(name = "sex")
-    private String sex;
-/*
-    @Column(name = "sex")
-    private Sex male = male.MALE;
+    @Enumerated(EnumType.STRING)
+    private Sex sex;
 
-    @Column(name = "sex")
-    private Sex female = female.FEMALE; */
 
 }
 

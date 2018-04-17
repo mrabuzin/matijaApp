@@ -36,7 +36,7 @@ public class UserController {
 
     @GetMapping("/create")
     public String showCreateUserForm(Model model) {
-        User user = new User(null, "", "", "", "");
+        User user = new User(null, "", "", "",null);
         model.addAttribute("user", user);
         return "create-user";
     }

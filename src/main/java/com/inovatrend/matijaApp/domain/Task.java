@@ -1,18 +1,22 @@
 package com.inovatrend.matijaApp.domain;
 
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 
+
+@Getter
+@Setter
 @Entity
-@Table(name = "addresses")
+@Table(name = "task")
 public class Task {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "address_sequence")
-    @SequenceGenerator(name = "address_sequence", allocationSize = 10)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "task_sequence")
+    @SequenceGenerator(name = "task_sequence", allocationSize = 10)
     @Setter(AccessLevel.PRIVATE)
     private Long id;
 

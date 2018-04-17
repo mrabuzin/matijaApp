@@ -2,23 +2,23 @@ package com.inovatrend.matijaApp.domain;
 
 public enum Sex {
 
-    MALE,
-    FEMALE;
+  //  MALE,
+    // FEMALE;
 
 
-    /*
+
     MALE("Male"),
     FEMALE("Female");
 
-    private String sex;
+    private String label;
 
     Sex(String sex) {
 
-        this.sex = sex;
+        this.label = sex;
 
     }
 
     public String sex(){
-        return sex;
-    } */
+        return label;
+    }
 }
