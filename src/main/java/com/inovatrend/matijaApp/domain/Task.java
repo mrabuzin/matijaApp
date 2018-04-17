@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 
 
 @Getter
@@ -27,7 +28,7 @@ public class Task {
     private String description;
 
     @Column(name = "creation_date")
-    private String creationDate;
+    private Date creationDate = new Date();
 
     @ManyToOne
     @JoinColumn(name = "user_id")

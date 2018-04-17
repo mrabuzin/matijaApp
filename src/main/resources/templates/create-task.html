@@ -18,12 +18,9 @@
     <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Incorrect description</p>
     <br/><br/>
 
-    Creation date: <input type="text" th:field="*{creationDate}"/><br/><br/>
-    <p th:if="${#fields.hasErrors('creationDate')}" th:errors="*{creationDate}">Incorrect creationDate</p>
-    <br/>
 
-    Asign task to user: <input type="text" th:field="*{user}"/><br/><br/>
-    <p th:if="${#fields.hasErrors('user')}" th:errors="*{user}">Incorrect user</p>
+    Asign task to user id: <input type="text" th:field="*{user}"/><br/><br/>
+    <p th:if="${#fields.hasErrors('user')}" th:errors="*{user}">Incorrect user id</p>
     <br/>
 
     <button type="submit"> Submit</button>
