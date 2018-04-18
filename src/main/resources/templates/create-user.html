@@ -22,7 +22,7 @@
     <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Incorrect email</p>
     <br/><br/>
 
- <!--   Sex:<br/> <select th:field="*{sex}">
+  <!--  Sex:<br/> <select th:field="*{sex}">
     <option th:each="sex : ${sexOptions}"
             th:value="${sex.getLabel()}"
             th:text="${sex.getLabel()}">Gender</option>

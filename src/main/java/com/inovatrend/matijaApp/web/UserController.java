@@ -45,8 +45,8 @@ public class UserController {
         User user = new User(null, "", "", "",null);
         model.addAttribute("user", user);
 
-      // List<Sex> sexOptions = Arrays.asList(userManager.getAllSexes());
-       // model.addAttribute("sexOptions" , sexOptions);
+     //List<Sex> sexOptions = Arrays.asList(userManager.getAllSexes());
+     //model.addAttribute("sexOptions" , sexOptions);
 
         return "create-user";
     }

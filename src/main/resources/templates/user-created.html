@@ -7,9 +7,9 @@
 </head>
 <body>
 
-<h1>User created</h1>
-
-<p th:text="${user.id}">First name</p>
+<p th:text="${'User with id: ' + user.id + ' is created!'}">Task</p>
+<h3 th:text="${user.firstName + ' ' + user.lastName}">Task</h3>
+<p th:text="${'User email: ' + user.email}">Task</p>
 <a href="/">Homepage</a>
 <a href="/user/create">Create new user</a>
 <a href="/user/list">View all users</a>

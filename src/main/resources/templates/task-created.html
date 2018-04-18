@@ -7,9 +7,10 @@
 </head>
 <body>
 
-<h1>Task created</h1>
-
-<p th:text="${task.id}">Task</p>
+<p th:text="${'Task with id: ' + task.id + ' is created!'}">Task</p>
+<h3 th:text="${task.title}">Task</h3>
+<p th:text="${'Task description: ' + task.description}">Task</p>
+<p th:text="${'Task creation date:' + task.creationDate}">Task</p>
 <a href="/">Homepage</a>
 <a href="/task/create">Create new task</a>
 <a href="/task/list">View all tasks</a>
