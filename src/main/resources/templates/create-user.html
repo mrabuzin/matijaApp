@@ -22,15 +22,12 @@
     <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Incorrect email</p>
     <br/><br/>
 
-    Sex: <input type="text" th:field="*{sex}"/><br/><br/>
-    <p th:if="${#fields.hasErrors('sex')}" th:errors="*{sex}">Incorrect sex</p>
-    <br/><br/>
-    <!--
-    Sex:
-    <form action=""><br/>
-        <input type="radio" name="gender" value = "male" th:field="*{sex}"/> Male<br/>
-        <input type="radio" name="gender" value = "female" th:field="*{sex}"/>Female<br/>
-    </form> -->
+ <!--   Sex:<br/> <select th:field="*{sex}">
+    <option th:each="sex : ${sexOptions}"
+            th:value="${sex.getLabel()}"
+            th:text="${sex.getLabel()}">Gender</option>
+</select> -->
+
 
 <br/>
     <button type="submit"> Submit</button>

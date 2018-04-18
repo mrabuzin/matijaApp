@@ -1,5 +1,10 @@
 package com.inovatrend.matijaApp.domain;
 
+
+import lombok.Getter;
+
+@Getter
+
 public enum Sex {
 
   //  MALE,
@@ -18,7 +23,7 @@ public enum Sex {
 
     }
 
-    public String sex(){
+    public String getLabel() {
         return label;
     }
 }

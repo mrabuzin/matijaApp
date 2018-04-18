@@ -30,4 +30,9 @@ public class TaskManagerClass implements TaskManager{
     public void deleteTask(long id) {
         taskRepository.deleteById(id);
     }
+
+    @Override
+    public List<Task> findByUserId(Long userId) {
+        return taskRepository.findByUserId(userId);
+    }
 }

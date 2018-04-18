@@ -1,5 +1,6 @@
 package com.inovatrend.matijaApp.web;
 
+import com.inovatrend.matijaApp.domain.Sex;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,6 +11,7 @@ import com.inovatrend.matijaApp.domain.User;
 import com.inovatrend.matijaApp.service.UserManager;
 
 import javax.validation.Valid;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -21,15 +23,19 @@ public class UserController {
 
     private final UserManager userManager;
 
+
     public UserController(UserManager userManager) {
         this.userManager = userManager;
+
     }
 
     @RequestMapping(value = "/list")
     public String listAllUsers(Model model) {
 
         List<User> allUsers = userManager.getAllUsers();
+
         model.addAttribute("users", allUsers);
+
         return "list-users";
     }
 
@@ -38,6 +44,10 @@ public class UserController {
     public String showCreateUserForm(Model model) {
         User user = new User(null, "", "", "",null);
         model.addAttribute("user", user);
+
+      // List<Sex> sexOptions = Arrays.asList(userManager.getAllSexes());
+       // model.addAttribute("sexOptions" , sexOptions);
+
         return "create-user";
     }
 

@@ -1,7 +1,9 @@
 package com.inovatrend.matijaApp.web;
 
 import com.inovatrend.matijaApp.domain.Task;
+import com.inovatrend.matijaApp.domain.User;
 import com.inovatrend.matijaApp.service.TaskManager;
+import com.inovatrend.matijaApp.service.UserManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,24 +19,40 @@ import java.util.List;
 public class TaskController {
 
     private final TaskManager taskManager;
+    private final UserManager userManager;
 
 
-    public TaskController(TaskManager taskManager) {
+
+    public TaskController(TaskManager taskManager, UserManager userManager) {
         this.taskManager = taskManager;
+        this.userManager = userManager;
     }
 
     @RequestMapping(value = "/list")
-    public String listAllTasks(Model model) {
+    public String listAllTasks(Model model, @RequestParam(required = false) Long userId) {
 
-        List<Task> allTasks = taskManager.getAllTasks();
-        model.addAttribute("tasks", allTasks);
+        if (userId == null){
+            List<Task> allTasks = taskManager.getAllTasks();
+            model.addAttribute("tasks", allTasks);
+        } else {
+            List<Task> userTasks = taskManager.findByUserId(userId);
+            model.addAttribute("tasks", userTasks);
+        }
+
+
+        List<User> allUsers = userManager.getAllUsers();
+
+        model.addAttribute("users" , allUsers);
+
         return "list-tasks";
     }
 
     @GetMapping("/create")
     public String showCreateTaskForm(Model model) {
         Task task = new Task();
+        List<User> allUsers = userManager.getAllUsers();
         model.addAttribute("task", task);
+        model.addAttribute("users" , allUsers);
         return "create-task";
     }
 

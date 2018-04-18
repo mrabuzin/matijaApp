@@ -9,5 +9,5 @@ public interface TaskManager {
     Task save(Task task);
     List<Task> getAllTasks();
     void deleteTask(long id);
-
+    List<Task> findByUserId(Long userId);
 }

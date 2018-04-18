@@ -7,14 +7,22 @@
 </head>
 <body>
 
-FIlter tasks by User ID:
-<input type="text"/>
+<form>
+Filter tasks by users:
+<select name = "userId">
+    <option th:each="user : ${users}"
+            th:value="${user.id}"
+            th:text="${user.firstName + ' ' + user.lastName}">Users
+    </option>
+</select>
+<button>Filter</button>
+    </form>
 
 <br/><br/>
 
 <ul>
     <li th:each="task : ${tasks}" >
-        <span th:text="${task.title} + ': ' + ${task.creationDate}"> Task</span>
+        <span th:text="${task.title} + ': ' + ${task.creationDate} + ' ' + ${task.user.firstName} + ' ' + ${task.user.lastName}"> Task</span>
         <a th:href="'/task/delete/' + ${task.id}"><button>Delete task</button></a>
     </li>
 </ul>

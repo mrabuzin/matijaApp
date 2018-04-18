@@ -19,9 +19,13 @@
     <br/><br/>
 
 
-    Asign task to user id: <input type="text" th:field="*{user}"/><br/><br/>
-    <p th:if="${#fields.hasErrors('user')}" th:errors="*{user}">Incorrect user id</p>
-    <br/>
+    Asign task to user:
+    <select th:field="*{user}">
+    <option th:each="user : ${users}"
+            th:value="${user.id}"
+            th:text="${user.firstName + ' ' + user.lastName}">Users
+    </option>
+</select>
 
     <button type="submit"> Submit</button>
 </form>

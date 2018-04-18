@@ -1,5 +1,6 @@
 package com.inovatrend.matijaApp.service;
 
+import com.inovatrend.matijaApp.domain.Sex;
 import org.springframework.stereotype.Service;
 
 
@@ -7,6 +8,7 @@ import com.inovatrend.matijaApp.dao.UserRepository;
 import com.inovatrend.matijaApp.domain.User;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -29,8 +31,21 @@ public class UserManagerClass implements UserManager {
     }
 
     @Override
+    public Optional<User> getUser(Long id) {
+        return userRepository.findById(id);
+    }
+
+    @Override
     public void deleteUser(Long id) {
+
         userRepository.deleteById(id);
     }
+
+    @Override
+    public Sex[] getAllSexes() {
+        return Sex.values();
+    }
+
+
 
 }
