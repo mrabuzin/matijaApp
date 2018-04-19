@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <title>User created</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../css/mystyle.css">
 </head>
 <body>
-
-<p th:text="${'User with id: ' + user.id + ' is created!'}">Task</p>
-<h3 th:text="${user.firstName + ' ' + user.lastName}">Task</h3>
-<p th:text="${'User email: ' + user.email}">Task</p>
-<a href="/">Homepage</a>
-<a href="/user/create">Create new user</a>
-<a href="/user/list">View all users</a>
-
+<div class="container col-sm-5 mt-5 text-center">
+<p th:text="${'User: ' + user.firstName + ' ' + user.lastName +' is created!'}">Task</p>
+<a href="/" class="btn btn-lg btn-outline-dark">Homepage</a><br/>
+<a href="/user/create" class="btn btn-lg btn-outline-warning mt-2">Create new user</a><br/>
+<a href="/user/list" class="btn btn-lg btn-outline-warning mt-2">View all users</a>
+</div>
 
 </body>
 </html>

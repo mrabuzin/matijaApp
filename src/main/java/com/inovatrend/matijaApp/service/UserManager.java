@@ -17,5 +17,5 @@ public interface UserManager {
     void deleteUser(Long id);
 
 
-    Sex[] getAllSexes();
+
 }

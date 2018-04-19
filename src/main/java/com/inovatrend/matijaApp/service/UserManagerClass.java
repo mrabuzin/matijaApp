@@ -41,10 +41,7 @@ public class UserManagerClass implements UserManager {
         userRepository.deleteById(id);
     }
 
-    @Override
-    public Sex[] getAllSexes() {
-        return Sex.values();
-    }
+
 
 
 

@@ -4,16 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Task created</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../css/mystyle.css">
 </head>
 <body>
-
-<p th:text="${'Task with id: ' + task.id + ' is created!'}">Task</p>
-<h3 th:text="${task.title}">Task</h3>
-<p th:text="${'Task description: ' + task.description}">Task</p>
-<p th:text="${'Task creation date:' + task.creationDate}">Task</p>
-<a href="/">Homepage</a>
-<a href="/task/create">Create new task</a>
-<a href="/task/list">View all tasks</a>
-
+<div class="container col-sm-5 mt-5 text-center">
+<p th:text="${'Task with: ' + task.title + ' is created!'}">Task</p>
+<a href="/" class="btn btn-lg btn-outline-dark mt-2">Homepage</a><br/>
+<a href="/task/create" class="btn btn-lg btn-outline-warning mt-2">Create new task</a><br/>
+<a href="/task/list" class="btn btn-lg btn-outline-warning mt-2">View all tasks</a>
+</div>
 </body>
 </html>

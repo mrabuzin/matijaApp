@@ -10,4 +10,5 @@ public interface TaskManager {
     List<Task> getAllTasks();
     void deleteTask(long id);
     List<Task> findByUserId(Long userId);
+    void deleteByUserId(Long userId);
 }

@@ -1,6 +1,7 @@
 package com.inovatrend.matijaApp.web;
 
 import com.inovatrend.matijaApp.domain.Sex;
+import com.inovatrend.matijaApp.service.TaskManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,8 +12,8 @@ import com.inovatrend.matijaApp.domain.User;
 import com.inovatrend.matijaApp.service.UserManager;
 
 import javax.validation.Valid;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 
 @Controller
@@ -22,11 +23,13 @@ public class UserController {
 
 
     private final UserManager userManager;
+    private final TaskManager taskManager;
 
 
-    public UserController(UserManager userManager) {
+    public UserController(UserManager userManager, TaskManager taskManager) {
         this.userManager = userManager;
 
+        this.taskManager = taskManager;
     }
 
     @RequestMapping(value = "/list")
@@ -40,15 +43,35 @@ public class UserController {
     }
 
 
+//    @GetMapping("/create")
+//    public String showCreateUserForm(Model model ,@RequestParam(required = false) long userId) {
+//        if(userId == null) {
+//            User user = new User(null, "", "", "", null);
+//            model.addAttribute("user", user);
+//
+//            model.addAttribute("sexOptions", Sex.values());
+//
+//            return "create-user";
+//        } else {
+//
+//            Optional<User> user = userManager.getUser(userId);
+//            model.addAttribute("user", user);
+//
+//            model.addAttribute("sexOptions", Sex.values());
+//            return "create-user";
+//        }
+//    }
+
     @GetMapping("/create")
     public String showCreateUserForm(Model model) {
-        User user = new User(null, "", "", "",null);
-        model.addAttribute("user", user);
 
-     //List<Sex> sexOptions = Arrays.asList(userManager.getAllSexes());
-     //model.addAttribute("sexOptions" , sexOptions);
+            User user = new User(null, "", "", "", null);
+            model.addAttribute("user", user);
 
-        return "create-user";
+            model.addAttribute("sexOptions", Sex.values());
+
+            return "create-user";
+
     }
 
 
@@ -72,6 +95,7 @@ public class UserController {
 
     @GetMapping("/delete/{userId}")
     public String deleteUser(@PathVariable Long userId) {
+        taskManager.deleteByUserId(userId);
         userManager.deleteUser(userId);
         return "redirect:/user/list";
     }
