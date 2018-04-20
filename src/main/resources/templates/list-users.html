@@ -14,7 +14,7 @@
     <li class="mt-2" th:each="user : ${users}" >
         <span class="bigblock" th:text="${user.firstName} + ' ' + ${user.lastName} + ' ' + ${user.email}"> User</span>
         <a th:href="'/user/delete/' + ${user.id}"><button class="btn btn-danger" >Delete user</button></a>
-        <a th:href="'/user/create/' + ${user.id}"><button class="btn btn-warning" >Edit user</button></a>
+        <a th:href="@{'/user/edit/' + ${user.id}}"><button class="btn btn-warning" >Edit user</button></a>
     </li>
     </div>
 </ul>

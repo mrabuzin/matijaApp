@@ -5,6 +5,7 @@ import com.inovatrend.matijaApp.domain.Task;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TaskManagerClass implements TaskManager{
@@ -39,5 +40,10 @@ public class TaskManagerClass implements TaskManager{
     @Override
     public void deleteByUserId(Long userId) {
         taskRepository.deleteByUserId(userId);
+    }
+
+    @Override
+    public Optional<Task> getTask(Long id) {
+        return taskRepository.findById(id);
     }
 }

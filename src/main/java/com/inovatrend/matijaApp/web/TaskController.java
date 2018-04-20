@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @SessionAttributes("task")
@@ -34,9 +35,11 @@ public class TaskController {
         if (userId == null){
             List<Task> allTasks = taskManager.getAllTasks();
             model.addAttribute("tasks", allTasks);
-        } else {
+        }
+        else {
             List<Task> userTasks = taskManager.findByUserId(userId);
             model.addAttribute("tasks", userTasks);
+            model.addAttribute("selectedUser" , userId);
         }
 
 
@@ -78,6 +81,16 @@ public class TaskController {
     public String deleteTask(@PathVariable Long taskId) {
         taskManager.deleteTask(taskId);
         return "redirect:/task/list";
+    }
+
+    @GetMapping("/edit/{taskId}")
+    public String editUser( Model model, @PathVariable Long taskId) {
+        Optional<Task> task = taskManager.getTask(taskId);
+        model.addAttribute("task", task);
+
+        List<User> allUsers = userManager.getAllUsers();
+        model.addAttribute("users" , allUsers);
+        return "create-task";
     }
 
     @ResponseBody

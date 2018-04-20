@@ -43,24 +43,7 @@ public class UserController {
     }
 
 
-//    @GetMapping("/create")
-//    public String showCreateUserForm(Model model ,@RequestParam(required = false) long userId) {
-//        if(userId == null) {
-//            User user = new User(null, "", "", "", null);
-//            model.addAttribute("user", user);
-//
-//            model.addAttribute("sexOptions", Sex.values());
-//
-//            return "create-user";
-//        } else {
-//
-//            Optional<User> user = userManager.getUser(userId);
-//            model.addAttribute("user", user);
-//
-//            model.addAttribute("sexOptions", Sex.values());
-//            return "create-user";
-//        }
-//    }
+
 
     @GetMapping("/create")
     public String showCreateUserForm(Model model) {
@@ -98,6 +81,15 @@ public class UserController {
         taskManager.deleteByUserId(userId);
         userManager.deleteUser(userId);
         return "redirect:/user/list";
+    }
+
+    @GetMapping("/edit/{userId}")
+    public String editUser( Model model, @PathVariable Long userId) {
+        Optional<User> user = userManager.getUser(userId);
+        model.addAttribute("user", user);
+
+        model.addAttribute("sexOptions", Sex.values());
+        return "create-user";
     }
 
 
