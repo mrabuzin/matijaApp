@@ -2,6 +2,7 @@ package com.inovatrend.matijaApp.service;
 
 import com.inovatrend.matijaApp.dao.TaskRepository;
 import com.inovatrend.matijaApp.domain.Task;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,7 +25,8 @@ public class TaskManagerClass implements TaskManager{
 
     @Override
     public List<Task> getAllTasks() {
-        return taskRepository.findAll();
+        Sort sort = new Sort(Sort.Direction.ASC, "creationDate");
+        return taskRepository.findAll(sort);
     }
 
     @Override

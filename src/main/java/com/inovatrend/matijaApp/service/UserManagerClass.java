@@ -1,6 +1,7 @@
 package com.inovatrend.matijaApp.service;
 
-import com.inovatrend.matijaApp.domain.Sex;
+
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 
@@ -26,8 +27,10 @@ public class UserManagerClass implements UserManager {
     }
 
     @Override
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public List<User> getAllUsers()
+    {
+        Sort sort = new Sort(Sort.Direction.ASC, "lastName");
+        return userRepository.findAll(sort);
     }
 
     @Override

@@ -42,19 +42,27 @@ public class UserController {
         return "list-users";
     }
 
-
-
-
+//    @GetMapping("/edit")
+//    public String editUser( Model model, @PathVariable(required = false) Long userId) {
+//        if(userId != null) {
+//            Optional<User> user = userManager.getUser(userId);
+//            model.addAttribute("user", user);
+//
+//
+//        } else {
+//            User user = new User(null, "", "", "", null);
+//            model.addAttribute("user", user);
+//        }
+//        model.addAttribute("sexOptions", Sex.values());
+//        return "create-user";
+//    }
     @GetMapping("/create")
-    public String showCreateUserForm(Model model) {
+    public String createUser( Model model) {
 
-            User user = new User(null, "", "", "", null);
-            model.addAttribute("user", user);
-
-            model.addAttribute("sexOptions", Sex.values());
-
-            return "create-user";
-
+        User user = new User(null, "", "", "", null);
+        model.addAttribute("user", user);
+        model.addAttribute("sexOptions", Sex.values());
+        return "create-user";
     }
 
 
@@ -87,9 +95,9 @@ public class UserController {
     public String editUser( Model model, @PathVariable Long userId) {
         Optional<User> user = userManager.getUser(userId);
         model.addAttribute("user", user);
-
         model.addAttribute("sexOptions", Sex.values());
         return "create-user";
+
     }
 
 

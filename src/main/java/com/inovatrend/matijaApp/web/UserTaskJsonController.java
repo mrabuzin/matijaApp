@@ -5,9 +5,7 @@ import com.inovatrend.matijaApp.domain.User;
 import com.inovatrend.matijaApp.service.TaskManager;
 import com.inovatrend.matijaApp.service.UserManager;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,5 +31,6 @@ public class UserTaskJsonController {
     public List<Task> getJsonTasks() {
         return taskManager.getAllTasks();
     }
+
 
 }

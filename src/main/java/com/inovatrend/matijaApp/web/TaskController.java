@@ -84,7 +84,7 @@ public class TaskController {
     }
 
     @GetMapping("/edit/{taskId}")
-    public String editUser( Model model, @PathVariable Long taskId) {
+    public String editTask( Model model, @PathVariable Long taskId) {
         Optional<Task> task = taskManager.getTask(taskId);
         model.addAttribute("task", task);
 
